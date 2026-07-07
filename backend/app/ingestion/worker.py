@@ -50,10 +50,12 @@ async def ingest_document(ctx: dict[str, Any] | None, document_id: str) -> None:
         try:
             storage = get_storage(settings)
             data = await asyncio.to_thread(_read_all, storage, document.storage_path)
-            pages = extract_pages(data, document.mime_type)
+            # Extraction can be CPU-heavy (OCR fallback for scanned PDFs);
+            # keep it off the event loop.
+            pages = await asyncio.to_thread(extract_pages, data, document.mime_type)
             pieces = chunk_pages(pages)
             if not pieces:
-                raise ValueError("Document contains no extractable text")
+                raise ValueError("No text could be extracted from this document, even after OCR")
 
             # Idempotent re-ingest: drop any chunks from a previous attempt.
             await session.execute(delete(Chunk).where(Chunk.document_id == document.id))

@@ -13,6 +13,7 @@ Chat with your documents — hybrid RAG (pgvector + Postgres FTS with reciprocal
 - **Runs end-to-end with zero API keys.** Local fastembed embeddings and a deterministic extractive answerer mean `docker compose up` gives a full working demo — and one env var swaps in OpenAI, Anthropic, or any OpenAI-compatible server.
 - **Retrieval quality is CI-gated.** A 15-case golden set (easy lookups, paraphrase-only questions, cross-section questions) runs on every push against a real pgvector database; the build fails if hit-rate@5 drops below threshold.
 - **Streaming citations UX.** Answers stream over SSE with sources emitted *before* the first token, so the UI renders citation targets immediately and `[n]` markers in the text link to real chunks.
+- **Scanned PDFs just work.** Pages with no text layer automatically fall back to OCR (RapidOCR — bundled ONNX models, CPU-only, fully offline), so image-only documents like scanned reports and receipts are searchable too.
 
 ![Chat with streaming, citation-grounded answers](docs/assets/chat.png)
 

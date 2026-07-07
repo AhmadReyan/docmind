@@ -30,6 +30,26 @@ def test_nul_bytes_stripped_from_text() -> None:
     assert "U0UJ9K2E0001" in pages[0].text
 
 
+def test_scanned_pdf_falls_back_to_ocr() -> None:
+    # A page that is one big image and no text layer (like a scanned document).
+    import io
+
+    from PIL import Image, ImageDraw, ImageFont
+
+    image = Image.new("RGB", (1400, 400), "white")
+    draw = ImageDraw.Draw(image)
+    font = ImageFont.load_default(size=56)
+    draw.text((60, 80), "PARTS WORKFLOW DATABASE", fill="black", font=font)
+    draw.text((60, 200), "Redesign approved in 2026", fill="black", font=font)
+    buffer = io.BytesIO()
+    image.save(buffer, format="PDF")
+
+    pages = extract_pages(buffer.getvalue(), "application/pdf")
+    joined = " ".join(page.text.upper() for page in pages)
+    assert "WORKFLOW" in joined
+    assert "2026" in joined
+
+
 def test_pdf_pages_extracted_with_page_numbers() -> None:
     data = build_pdf(["Hello from page one", "Hello from page two"])
     pages = extract_pages(data, "application/pdf")

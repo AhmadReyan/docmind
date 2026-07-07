@@ -35,7 +35,11 @@ ENV PYTHONUNBUFFERED=1 \
     PATH="/opt/venv/bin:$PATH" \
     FASTEMBED_CACHE_PATH=/opt/fastembed_cache
 
-RUN groupadd --gid 1000 app \
+# libgl1/libglib2.0-0: required by opencv (RapidOCR dependency) on slim images.
+RUN apt-get update \
+    && apt-get install -y --no-install-recommends libgl1 libglib2.0-0 \
+    && rm -rf /var/lib/apt/lists/* \
+    && groupadd --gid 1000 app \
     && useradd --uid 1000 --gid app --create-home app \
     && mkdir -p /data/uploads \
     && chown -R app:app /data/uploads
