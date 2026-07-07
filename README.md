@@ -14,7 +14,20 @@ Chat with your documents — hybrid RAG (pgvector + Postgres FTS with reciprocal
 - **Retrieval quality is CI-gated.** A 15-case golden set (easy lookups, paraphrase-only questions, cross-section questions) runs on every push against a real pgvector database; the build fails if hit-rate@5 drops below threshold.
 - **Streaming citations UX.** Answers stream over SSE with sources emitted *before* the first token, so the UI renders citation targets immediately and `[n]` markers in the text link to real chunks.
 
-<!-- screenshot: docs/assets/chat.png -->
+![Chat with streaming, citation-grounded answers](docs/assets/chat.png)
+
+<details>
+<summary>More screenshots</summary>
+
+**Citation popovers** — every `[n]` marker opens the exact source chunk it came from:
+
+![Citation popover showing the source chunk](docs/assets/citation.png)
+
+**Document library** — upload, background ingestion with live status, chunk browser:
+
+![Documents page with ingestion status](docs/assets/documents.png)
+
+</details>
 
 ## Quickstart
 

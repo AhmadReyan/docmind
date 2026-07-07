@@ -87,23 +87,22 @@ export function ChatMessage({
                 <span key={i} className="relative inline-block">
                   <button
                     type="button"
-                    onClick={() =>
-                      setOpenCitation((open) =>
-                        open === segment.index ? null : segment.index,
-                      )
-                    }
+                    // Keyed by segment position, not source index: the same
+                    // [n] marker can occur several times in one message and
+                    // only the clicked chip should open.
+                    onClick={() => setOpenCitation((open) => (open === i ? null : i))}
                     aria-label={`Citation ${segment.index}: ${segment.source.document_title}`}
-                    aria-expanded={openCitation === segment.index}
+                    aria-expanded={openCitation === i}
                     className={cn(
                       "mx-0.5 inline-flex h-4 min-w-4 -translate-y-1 items-center justify-center rounded px-1 align-baseline text-[10px] font-semibold transition-colors",
-                      openCitation === segment.index
+                      openCitation === i
                         ? "bg-indigo-500 text-white"
                         : "bg-indigo-500/20 text-indigo-300 hover:bg-indigo-500/40",
                     )}
                   >
                     {segment.index}
                   </button>
-                  {openCitation === segment.index && (
+                  {openCitation === i && (
                     <span className="absolute left-0 top-full z-30 mt-1.5 block animate-fade-in-up">
                       <SourceCard source={segment.source} />
                     </span>
