@@ -115,62 +115,16 @@ def _run_migrations(database_url: str) -> None:
 # --------------------------------------------------------------------------
 # Ingestion (calls the app's own extract/chunk/embed building blocks)
 # --------------------------------------------------------------------------
-# NOTE: extraction/chunking function names are resolved defensively because
-# this harness is written against docs/api-contract.md, which pins retrieve()
-# and the providers but not the internal ingestion helpers.
+def _extract_and_chunk(path: Path, mime_type: str) -> list[dict[str, Any]]:
+    """Run the app's real ingestion pipeline: extract_pages -> chunk_pages."""
+    from app.ingestion.chunking import chunk_pages
+    from app.ingestion.extract import extract_pages
 
-
-def _extract_text(path: Path, mime_type: str) -> str:
-    from app.ingestion import extract
-
-    for name in ("extract_text", "extract"):
-        fn = getattr(extract, name, None)
-        if fn is not None:
-            raw = fn(path, mime_type)
-            return raw if isinstance(raw, str) else _join_extracted(raw)
-    print(f"warning: no extractor found in app.ingestion.extract; reading {path.name} directly")
-    return path.read_text(encoding="utf-8")
-
-
-def _join_extracted(raw: Any) -> str:
-    """Normalize a non-str extraction result (e.g. list of pages) into text."""
-    parts: list[str] = []
-    for item in raw:
-        if isinstance(item, str):
-            parts.append(item)
-        elif hasattr(item, "text"):
-            parts.append(item.text)
-        elif isinstance(item, (tuple, list)) and item:
-            parts.append(str(item[-1]))
-    return "\n\n".join(parts)
-
-
-def _chunk_text(text: str) -> list[dict[str, Any]]:
-    """Return [{content, token_count, page_number}] using app.ingestion.chunking."""
-    from app.ingestion import chunking
-
-    fn = None
-    for name in ("chunk_text", "chunk", "split_text"):
-        fn = getattr(chunking, name, None)
-        if fn is not None:
-            break
-    if fn is None:
-        raise SystemExit("no chunker found in app.ingestion.chunking")
-
-    out: list[dict[str, Any]] = []
-    for item in fn(text):
-        if isinstance(item, str):
-            content = item
-            token_count = max(1, len(content) // 4)
-            page_number = None
-        else:
-            content = getattr(item, "content", None) or getattr(item, "text", "")
-            token_count = getattr(item, "token_count", None) or max(1, len(content) // 4)
-            page_number = getattr(item, "page_number", None)
-        out.append(
-            {"content": content, "token_count": token_count, "page_number": page_number}
-        )
-    return out
+    pages = extract_pages(path.read_bytes(), mime_type)
+    return [
+        {"content": c.content, "token_count": c.token_count, "page_number": c.page_number}
+        for c in chunk_pages(pages)
+    ]
 
 
 async def _ingest_seed_docs(
@@ -182,8 +136,7 @@ async def _ingest_seed_docs(
     doc_ids: dict[str, uuid.UUID] = {}
     for filename, mime_type in SEED_FILES.items():
         path = SEED_DIR / filename
-        text = _extract_text(path, mime_type)
-        chunks = _chunk_text(text)
+        chunks = _extract_and_chunk(path, mime_type)
         embeddings = await provider.embed([c["content"] for c in chunks])
 
         document = Document(
