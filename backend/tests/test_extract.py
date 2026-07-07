@@ -23,6 +23,13 @@ def test_invalid_utf8_replaced_not_raised() -> None:
     assert "ok" in pages[0].text
 
 
+def test_nul_bytes_stripped_from_text() -> None:
+    # Postgres TEXT rejects 0x00; real PDFs (e.g. Stripe receipts) contain it.
+    pages = extract_pages(b"Invoice U0UJ9K2E\x000001 total \x00$212.00", "text/plain")
+    assert "\x00" not in pages[0].text
+    assert "U0UJ9K2E0001" in pages[0].text
+
+
 def test_pdf_pages_extracted_with_page_numbers() -> None:
     data = build_pdf(["Hello from page one", "Hello from page two"])
     pages = extract_pages(data, "application/pdf")
