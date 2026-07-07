@@ -1,0 +1,22 @@
+# VCS
+.git
+.gitignore
+
+# Dependencies & build output (rebuilt inside the image)
+node_modules
+.next
+out
+coverage
+
+# Local env & secrets
+.env
+.env.*
+
+# Logs
+npm-debug.log*
+pnpm-debug.log*
+yarn-error.log*
+
+# Docker
+Dockerfile
+.dockerignore

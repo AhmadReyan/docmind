@@ -1,0 +1,39 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  color-scheme: dark;
+}
+
+html,
+body {
+  height: 100%;
+}
+
+body {
+  @apply bg-zinc-950 text-zinc-100 antialiased;
+}
+
+::selection {
+  @apply bg-indigo-500/40 text-white;
+}
+
+/* Subtle scrollbars that fit the dark palette */
+* {
+  scrollbar-width: thin;
+  scrollbar-color: theme("colors.zinc.700") transparent;
+}
+
+*::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+
+*::-webkit-scrollbar-thumb {
+  @apply rounded-full bg-zinc-700;
+}
+
+*::-webkit-scrollbar-track {
+  background: transparent;
+}

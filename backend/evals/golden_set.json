@@ -1,0 +1,92 @@
+[
+  {
+    "id": "aurora-pto-days",
+    "question": "How many PTO days do employees at Aurora Dynamics get each year?",
+    "expected_document": "aurora-employee-handbook.md",
+    "answer_keywords": ["24 days", "pto", "2 days per month"]
+  },
+  {
+    "id": "aurora-401k-match",
+    "question": "What is Aurora's 401(k) match policy?",
+    "expected_document": "aurora-employee-handbook.md",
+    "answer_keywords": ["401(k)", "first 4%", "next 2%", "vest immediately"]
+  },
+  {
+    "id": "aurora-password-paraphrase",
+    "question": "How often do staff have to change their login credentials, and how long must they be?",
+    "expected_document": "aurora-employee-handbook.md",
+    "answer_keywords": ["90 days", "14 characters", "password"]
+  },
+  {
+    "id": "aurora-remote-paraphrase",
+    "question": "Am I allowed to do my job from my house five days a week?",
+    "expected_document": "aurora-employee-handbook.md",
+    "answer_keywords": ["fully remote", "vp approval", "anchor days"]
+  },
+  {
+    "id": "aurora-cross-onboarding-security",
+    "question": "What training must a new hire finish in their first week, and how are company laptops protected?",
+    "expected_document": "aurora-employee-handbook.md",
+    "answer_keywords": ["security training", "first week", "bitlocker", "filevault"]
+  },
+  {
+    "id": "atlas-latency-slo",
+    "question": "What is the p99 ingest-to-dashboard latency target for Atlas?",
+    "expected_document": "atlas-product-spec.md",
+    "answer_keywords": ["800 ms", "p99", "ingest-to-dashboard"]
+  },
+  {
+    "id": "atlas-growth-pricing",
+    "question": "How much does the Atlas Growth tier cost per month and how many vehicles does it cover?",
+    "expected_document": "atlas-product-spec.md",
+    "answer_keywords": ["$499", "500 vehicles", "growth"]
+  },
+  {
+    "id": "atlas-ingest-paraphrase",
+    "question": "How many telemetry messages can the platform absorb each second in a single region?",
+    "expected_document": "atlas-product-spec.md",
+    "answer_keywords": ["250,000 events per second", "per region", "ingestion"]
+  },
+  {
+    "id": "atlas-eu-paraphrase",
+    "question": "When will European customers get in-country data residency?",
+    "expected_document": "atlas-product-spec.md",
+    "answer_keywords": ["q4 2026", "frankfurt", "eu region"]
+  },
+  {
+    "id": "atlas-cross-pricing-limits",
+    "question": "How do the API rate limits differ between the Atlas pricing tiers?",
+    "expected_document": "atlas-product-spec.md",
+    "answer_keywords": ["100 requests per minute", "1,000 requests per minute", "10,000 requests per minute", "enterprise"]
+  },
+  {
+    "id": "solaris-energy-density",
+    "question": "What energy density did the Solaris NX-3 cells achieve in the study?",
+    "expected_document": "solaris-research-notes.txt",
+    "answer_keywords": ["285 wh/kg", "energy density", "cell level"]
+  },
+  {
+    "id": "solaris-cost-per-kwh",
+    "question": "What is the projected production cost per kWh for Solaris at scale, and what was the baseline?",
+    "expected_document": "solaris-research-notes.txt",
+    "answer_keywords": ["$61", "cost per kwh", "$94"]
+  },
+  {
+    "id": "solaris-cycle-life-paraphrase",
+    "question": "How long do the cells keep working before they wear out at room temperature?",
+    "expected_document": "solaris-research-notes.txt",
+    "answer_keywords": ["4,200 cycles", "80 percent", "25c"]
+  },
+  {
+    "id": "solaris-fast-charge-paraphrase",
+    "question": "How quickly can one of these batteries be topped back up?",
+    "expected_document": "solaris-research-notes.txt",
+    "answer_keywords": ["22 minutes", "2c", "80 percent"]
+  },
+  {
+    "id": "solaris-methodology",
+    "question": "How many cells were tested in the Solaris study and over what period?",
+    "expected_document": "solaris-research-notes.txt",
+    "answer_keywords": ["240 pouch cells", "18-month", "three production batches"]
+  }
+]

@@ -1,0 +1,229 @@
+SOLARIS BATTERY CHEMISTRY — 18-MONTH CELL STUDY
+Research summary and internal notes
+Helvern Institute for Energy Storage, Applied Cells Group
+Principal investigator: Dr. Lena Vasquez
+Study window: January 2024 - June 2025 (18 months)
+Report reference: HI-ACG-2025-114
+
+
+1. BACKGROUND AND OBJECTIVE
+
+Solaris is a sodium-ion battery chemistry developed by the Applied Cells Group,
+pairing a polyanionic sodium-vanadium-phosphate cathode (internally designated
+NX-3) with a hard-carbon anode and a fluoroethylene-carbonate-modified
+electrolyte. The objective of this study was to characterize the Solaris NX-3
+chemistry against a commercial lithium-ion NMC 811 baseline across energy
+density, cycle life, temperature tolerance, fast-charge behavior, safety
+margin, and projected cost, at a maturity sufficient to justify (or kill) a
+pilot manufacturing line.
+
+The headline question posed by the steering committee: can Solaris reach at
+least 80 percent of NMC energy density at no more than 70 percent of NMC cost,
+while beating NMC on cold-weather performance and safety?
+
+Context. This is the third generation of the program. NX-1 (2021) validated
+the polyanionic cathode concept at coin-cell scale but delivered only
+118 Wh/kg. NX-2 (2022-2023) reached 205 Wh/kg in single-layer pouches but
+suffered rapid impedance growth above 40C, traced to electrolyte oxidation at
+the cathode surface. NX-3 addresses this with a 2 percent
+fluoroethylene-carbonate electrolyte additive and an alumina surface coating
+on the cathode particles, applied by atomic layer deposition. The hard-carbon
+anode is unchanged from NX-2 except for a 6 percent increase in pressing
+density. Sodium-ion remains attractive for the same structural reasons as at
+program start: no lithium, nickel, or cobalt exposure; aluminum current
+collectors on both electrodes (copper eliminated entirely); and the ability
+to ship cells at true 0 volts, which removes a class of transport
+restrictions that apply to lithium-ion.
+
+
+2. METHODOLOGY
+
+Cell population. The study used 240 pouch cells of the Solaris NX-3 chemistry,
+each of 18 Ah nominal capacity, drawn from three production batches to capture
+batch-to-batch variance. A control population of 60 commercial NMC 811 pouch
+cells was cycled under identical protocols.
+
+Temperature conditions. Cells were divided across three thermal chambers held
+at -20C, 25C, and 45C. Chamber temperatures were logged at 1-minute intervals
+and held within +/-0.5C.
+
+Charge protocols. Two charge rates were tested at each temperature: a C/2
+standard charge and a 2C fast charge, both with constant-current
+constant-voltage termination at 4.05 V. Discharge was 1C to a 2.0 V cutoff.
+Cycling continued until a cell reached 80 percent of its initial measured
+capacity, the industry-standard end-of-life definition, or until the study
+window closed.
+
+Instrumentation. Capacity, coulombic efficiency, DC internal resistance
+(measured by 10-second pulse), and cell swelling (laser micrometer) were
+recorded every 25 cycles. Twelve cells were sacrificed at intervals for
+post-mortem analysis: electrode cross-sections by SEM, electrolyte
+decomposition by GC-MS.
+
+Formation and screening. All cells completed a 3-cycle formation protocol at
+C/10 and 30C before entering the study. Cells outside +/-2 percent of nominal
+capacity or +/-10 percent of median DC resistance after formation were
+rejected; the rejection rate was 4.6 percent for Solaris cells and 1.7 percent
+for the commercial NMC controls, consistent with the maturity gap between a
+lab-scale line and a commercial one.
+
+Safety testing. A separate lot of 24 cells underwent accelerating-rate
+calorimetry (ARC) and nail-penetration testing to establish thermal-runaway
+onset temperatures.
+
+Statistics. Cycle-life figures are reported as medians with interquartile
+ranges; group comparisons use the Mann-Whitney U test at a 0.01 significance
+level. All raw cycler data, chamber logs, and analysis notebooks are archived
+under report reference HI-ACG-2025-114 in the institute data vault.
+
+
+3. KEY FINDINGS
+
+3.1 Energy density. Solaris NX-3 cells delivered a measured energy density of
+285 Wh/kg at the cell level, averaged across all three batches (standard
+deviation 6 Wh/kg). This compares to 190 Wh/kg typical of first-generation
+sodium-ion cells and falls 18 percent short of the 348 Wh/kg measured on the
+NMC 811 control cells. The result clears the steering committee's 80-percent
+threshold.
+
+3.2 Cycle life. At 25C with the C/2 charge protocol, Solaris cells reached
+4,200 cycles to 80 percent capacity retention (median; interquartile range
+3,950-4,410). The NMC control reached 1,800 cycles under the same protocol.
+At 45C, Solaris degradation accelerated: median cycle life fell to 2,900
+cycles, driven primarily by electrolyte decomposition confirmed in post-mortem
+GC-MS. The 2C fast-charge protocol at 25C reduced Solaris cycle life by
+roughly 12 percent versus C/2 — a notably small fast-charge penalty.
+
+3.3 Low-temperature performance. At -20C, Solaris cells retained 88 percent
+of their 25C discharge capacity, versus 61 percent for the NMC control. DC
+internal resistance at -20C rose 2.1x from its 25C value, versus 4.8x for
+NMC. This is the chemistry's most commercially distinctive result and supports
+targeting cold-climate stationary storage and delivery-fleet applications
+first.
+
+3.4 Fast charging. Under the 2C protocol at 25C, Solaris cells charged from
+10 percent to 80 percent state of charge in 22 minutes with no observable
+lithium-plating analog (sodium plating) in post-mortem SEM up to 1,000 cycles.
+
+3.5 Cost. A bottom-up cost model using the study's bill of materials, at an
+assumed 5 GWh/year production scale, projects a cost per kWh of $61 for
+Solaris cell production, versus $94 per kWh for the NMC 811 baseline under
+identical assumptions. The largest savings come from the absence of nickel and
+cobalt and from aluminum current collectors on both electrodes. Sensitivity:
+a 50 percent rise in vanadium price moves Solaris to $68 per kWh.
+
+3.6 Safety margin. ARC testing measured thermal-runaway onset at 212C for
+Solaris NX-3, versus 168C for the NMC control — a 44C wider safety margin.
+Peak heat-release rate during nail penetration was 3.4x lower than NMC. No
+Solaris cell exhibited fire or ejection in any abuse test; two of six NMC
+control cells did.
+
+
+3.7 Coulombic efficiency and swelling. Mean coulombic efficiency at 25C
+stabilized at 99.91 percent after formation (NMC control: 99.95 percent).
+Cell swelling at end-of-test was 3.1 percent of initial thickness at 25C and
+5.8 percent at 45C, both within the 8 percent pack-design allowance. DC
+internal resistance grew 31 percent over the first 3,000 cycles at 25C, with
+most of the growth in the first 500 cycles, consistent with SEI stabilization
+on the hard-carbon anode.
+
+3.8 Batch-to-batch variance. Median cycle life across the three production
+batches spanned 4,050 to 4,320 cycles, and energy density spanned
+281-291 Wh/kg. Batch B, produced after a calendering roller replacement,
+showed the tightest distributions - evidence that the remaining variance is
+process-driven rather than intrinsic to the chemistry, which is encouraging
+for manufacturing transfer.
+
+
+4. DISCUSSION
+
+Taken together, the results position Solaris NX-3 not as a universal
+lithium-ion replacement but as a targeted winner in two segments. First,
+cold-climate commercial fleets: the 88 percent capacity retention at -20C,
+combined with the small fast-charge penalty, addresses the single largest
+complaint of northern-latitude delivery operators. Second, stationary
+storage, where the $61 per kWh projected cost and the 4,200-cycle life
+compound: levelized cost of storage modeling (appendix C of the full report)
+puts Solaris 34 percent below the NMC baseline per delivered kWh over a
+20-year deployment. The 18 percent energy-density deficit against NMC 811
+matters little in stationary applications and is tolerable in delivery vans;
+it likely rules out passenger-car range competition for this generation.
+
+The safety results deserve emphasis in partner conversations: a 212C runaway
+onset with no fire or ejection in any abuse test materially simplifies pack
+design - reduced inter-cell barriers, simpler venting - which the cost model
+does not yet credit. A pack-level cost study should follow the pilot line
+decision.
+
+
+5. LIMITATIONS
+
+- Form factor. All results are from 18 Ah pouch cells. No automotive-format
+  pack-level validation has been performed; pack integration effects
+  (compression, cooling, busbar losses) are unquantified.
+- Study duration. The 18-month window is short relative to the 8-to-10-year
+  service life expected in automotive and stationary deployments. Calendar
+  aging, as distinct from cycle aging, is not fully characterized; a shelved
+  cell cohort continues under observation.
+- Supply chain. The hard-carbon anode material came from a single supplier
+  (batch-qualified, but single-source). Anode variability across suppliers is
+  an open risk for the cost model and for cycle-life reproducibility.
+- Statistical power at -20C. The cold chamber held 48 cells; wider confidence
+  intervals apply to all -20C figures.
+- The cost model assumes 5 GWh/year scale that does not yet exist for this
+  chemistry; first-plant costs will be materially higher.
+
+
+6. FUTURE WORK
+
+1. Cylindrical format transfer. Re-validate the chemistry in the 21700
+   cylindrical format in H2 2026, since two prospective partners require
+   cylindrical cells.
+2. Pilot line. Proceed with the proposed 50 MWh pilot manufacturing line,
+   targeted to commission in 2027, contingent on board approval in the
+   Q4 2026 capital review.
+3. Calendar-aging cohort. Continue the shelved-cell study to 36 months and
+   publish an interim calendar-aging model in mid-2027.
+4. Automotive partner. Advance the evaluation agreement with Meridian Motors
+   (fictional automaker) covering pack-level winter trials of 88 kWh Solaris
+   packs in delivery vans.
+5. Second anode source. Qualify a second hard-carbon supplier before pilot
+   line commissioning to de-risk the single-source dependency noted above.
+
+
+7. COMMITTEE RECOMMENDATION
+
+Proceed. The chemistry clears all three steering-committee gates: energy
+density (285 Wh/kg, above the 278 Wh/kg gate), cost ($61 per kWh, below the
+$66 gate), and differentiated cold-weather and safety performance. Primary
+risks are calendar aging and anode supply, both carried as tracked risks with
+mitigation owners assigned.
+
+Gate review detail. The committee voted 6-1 to proceed; the dissenting vote
+cited the single-source anode risk and asked that second-supplier
+qualification (item 5 above) be made a blocking precondition for pilot-line
+commissioning rather than a parallel workstream. The chair accepted this
+amendment. Budget approved for the next phase: $14.2M for the cylindrical
+transfer program and $3.1M for the extended calendar-aging cohort, drawn from
+the FY2026 applied-research envelope. The pilot line capital request
+(estimated $120M) goes to the board in the Q4 2026 capital review with a
+go/no-go informed by the H2 2026 cylindrical results.
+
+
+8. INTERNAL REFERENCES
+
+- HI-ACG-2025-114: this study, full report and data vault index.
+- HI-ACG-2024-071: NX-2 post-mortem and impedance-growth root cause.
+- HI-ACG-2025-089: bottom-up cost model, bill of materials, and sensitivity
+  analysis (basis for the $61 per kWh projection).
+- HI-SAF-2025-022: ARC and nail-penetration test protocols and raw
+  calorimetry traces.
+- Partner file MM-EVAL-03: Meridian Motors evaluation agreement, winter
+  trial scope (restricted access).
+
+Distribution: Applied Cells Group, steering committee, office of the CTO.
+Not for external distribution. Fictional document authored for the DocMind
+demo corpus.
+
+Prepared by L. Vasquez, reviewed by the Applied Cells Group steering
+committee, June 30, 2025.

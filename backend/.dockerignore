@@ -1,0 +1,30 @@
+# VCS
+.git
+.gitignore
+
+# Virtual environments & caches
+.venv
+venv
+**/__pycache__
+*.py[cod]
+.pytest_cache
+.mypy_cache
+.ruff_cache
+.coverage
+htmlcov
+
+# Tests are not needed in the image (evals/ and seed_data/ ARE needed -- do not add them here)
+tests
+
+# Local env & secrets
+.env
+.env.*
+
+# Build artifacts
+dist
+build
+*.egg-info
+
+# Docker
+Dockerfile
+.dockerignore
